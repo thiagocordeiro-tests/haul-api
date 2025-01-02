@@ -1,0 +1,5 @@
+.idea/
+.gradle/
+.mysql/
+build/
+!build/distributions/inspections-0.0.1.tar

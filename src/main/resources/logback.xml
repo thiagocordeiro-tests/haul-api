@@ -1,0 +1,23 @@
+<configuration>
+    <appender name="LogstashJsonConsole" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <!-- In case you want logs to be made using UTC timezone, you can switch to: <timeZone>UTC</timeZone> -->
+            <timeZone>UTC</timeZone>
+            <timestampPattern>yyyy-MM-dd'T'HH:mm:ssZZZZZ</timestampPattern>
+
+            <fieldNames>
+                <timestamp>timestamp</timestamp>
+                <thread>[ignore]</thread>
+                <version>[ignore]</version>
+                <levelValue>[ignore]</levelValue>
+                <stackTrace>exception</stackTrace>
+            </fieldNames>
+
+            <jsonGeneratorDecorator class="net.logstash.logback.decorate.CompositeJsonGeneratorDecorator"/>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="LogstashJsonConsole"/>
+    </root>
+</configuration>
